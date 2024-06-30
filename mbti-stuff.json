@@ -1,0 +1,182 @@
+{
+    "types": [
+        {
+            "type": "INTJ",
+            "functions": {
+                "Dominant": "Ni",
+                "Auxiliary": "Te",
+                "Tertiary": "Fi",
+                "Inferior": "Se"
+            }
+        },
+        {
+            "type": "INTP",
+            "functions": {
+                "Dominant": "Ti",
+                "Auxiliary": "Ne",
+                "Tertiary": "Si",
+                "Inferior": "Fe"
+            }
+        },
+        {
+            "type": "ENTJ",
+            "functions": {
+                "Dominant": "Te",
+                "Auxiliary": "Ni",
+                "Tertiary": "Se",
+                "Inferior": "Fi"
+            }
+        },
+        {
+            "type": "ENTP",
+            "functions": {
+                "Dominant": "Ne",
+                "Auxiliary": "Ti",
+                "Tertiary": "Fe",
+                "Inferior": "Si"
+            }
+        },
+        {
+            "type": "INFJ",
+            "functions": {
+                "Dominant": "Ni",
+                "Auxiliary": "Fe",
+                "Tertiary": "Ti",
+                "Inferior": "Se"
+            }
+        },
+        {
+            "type": "INFP",
+            "functions": {
+                "Dominant": "Fi",
+                "Auxiliary": "Ne",
+                "Tertiary": "Si",
+                "Inferior": "Te"
+            }
+        },
+        {
+            "type": "ENFJ",
+            "functions": {
+                "Dominant": "Fe",
+                "Auxiliary": "Ni",
+                "Tertiary": "Se",
+                "Inferior": "Ti"
+            }
+        },
+        {
+            "type": "ENFP",
+            "functions": {
+                "Dominant": "Ne",
+                "Auxiliary": "Fi",
+                "Tertiary": "Te",
+                "Inferior": "Si"
+            }
+        },
+        {
+            "type": "ISTJ",
+            "functions": {
+                "Dominant": "Si",
+                "Auxiliary": "Te",
+                "Tertiary": "Fi",
+                "Inferior": "Ne"
+            }
+        },
+        {
+            "type": "ISFJ",
+            "functions": {
+                "Dominant": "Si",
+                "Auxiliary": "Fe",
+                "Tertiary": "Ti",
+                "Inferior": "Ne"
+            }
+        },
+        {
+            "type": "ESTJ",
+            "functions": {
+                "Dominant": "Te",
+                "Auxiliary": "Si",
+                "Tertiary": "Ne",
+                "Inferior": "Fi"
+            }
+        },
+        {
+            "type": "ESFJ",
+            "functions": {
+                "Dominant": "Fe",
+                "Auxiliary": "Si",
+                "Tertiary": "Ne",
+                "Inferior": "Ti"
+            }
+        },
+        {
+            "type": "ISTP",
+            "functions": {
+                "Dominant": "Ti",
+                "Auxiliary": "Se",
+                "Tertiary": "Ni",
+                "Inferior": "Fe"
+            }
+        },
+        {
+            "type": "ISFP",
+            "functions": {
+                "Dominant": "Fi",
+                "Auxiliary": "Se",
+                "Tertiary": "Ni",
+                "Inferior": "Te"
+            }
+        },
+        {
+            "type": "ESTP",
+            "functions": {
+                "Dominant": "Se",
+                "Auxiliary": "Ti",
+                "Tertiary": "Fe",
+                "Inferior": "Ni"
+            }
+        },
+        {
+            "type": "ESFP",
+            "functions": {
+                "Dominant": "Se",
+                "Auxiliary": "Fi",
+                "Tertiary": "Te",
+                "Inferior": "Ni"
+            }
+        }
+    ],
+    "functions": [
+        {
+            "function": "Ni",
+            "shadow": "Ne"
+        },
+        {
+            "function": "Ne",
+            "shadow": "Ni"
+        },
+        {
+            "function": "Ti",
+            "shadow": "Te"
+        },
+        {
+            "function": "Te",
+            "shadow": "Ti"
+        },
+        {
+            "function": "Fi",
+            "shadow": "Fe"
+        },
+        {
+            "function": "Fe",
+            "shadow": "Fi"
+        },
+        {
+            "function": "Si",
+            "shadow": "Se"
+        },
+        {
+            "function": "Se",
+            "shadow": "Si"
+        }
+    ]
+}
