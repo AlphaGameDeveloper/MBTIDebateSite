@@ -16,6 +16,14 @@ footer {
     width: 100%;
     text-align: center;
 }
+
+td {
+    border-style: inset;
+}
+
+
+/* Debug if needed */
+/*
 .htmx-request {
     background-color: red;
-}
+} */

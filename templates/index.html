@@ -64,7 +64,7 @@
         <h2>MBTI Current</h2>
         <hr />
         <p><b>Current MBTI: </b><span id="mbtiCurrent" hx-get="/api/accessInternals/type_main_str" hx-trigger="every 1s">LOADING</span>
-        <p><b>Current MBTI SHADOW: </b><span id="mbtiCurrent" hx-get="/api/accessInternals/type_shadow_str" hx-trigger="every 1s">LOADING</span>
+        <p><b>Current MBTI SHADOW: </b><span id="mbtiShadow" hx-get="/api/accessInternals/type_shadow_str" hx-trigger="every 1s">LOADING</span>
         <p><b>Function Stack:</b> <span hx-get="/api/getStack" hx-trigger="load" hx-swap="innerHTML" hx-on="htmx:afterRequest: this.removeAttribute('hx-trigger')">LOADING</span></p>
         {% if debug %}
         <div style="text-align: left;">

@@ -29,10 +29,12 @@ def getShadowFunction(function):
         fnl[1] = "e"
     else:
         raise ValueError("Invalid function - Second letter incorrect!")
-    return "".join(fnl)
+    _re = "".join(fnl).lower()
+    print(_re)
+    return _re
 
 def getTypeFromFunction(dominant, auxiliary, tertiary, inferior) -> list[str]:
-    mbti = [None, None, None, None]
+    mbti = ["X", "X", "X", "X"]
 
     for entry in json_mbti_stuff["types"]: 
         e = entry["functions"]
@@ -50,14 +52,16 @@ def index():
 def _static(path):
     return send_from_directory("static", path)
 
+def formatFunction(function):
+    return function[0].upper() + function[1].lower()
 @app.route("/api/submitCurrentstate", methods=["POST"])
 def submitCurrentState():
     print(request.json)
     globalData.update(request.json)
-    globalData["shadow_opposing"] = getShadowFunction(globalData["dominant"])
-    globalData["shadow_critical"] = getShadowFunction(globalData["auxiliary"])
-    globalData["shadow_trickster"] = getShadowFunction(globalData["tertiary"])
-    globalData["shadow_transformative"] = getShadowFunction(globalData["inferior"])
+    globalData["shadow_opposing"] = formatFunction(getShadowFunction(globalData["dominant"])).lower()
+    globalData["shadow_critical"] = formatFunction(getShadowFunction(globalData["auxiliary"])).lower()
+    globalData["shadow_trickster"] = formatFunction(getShadowFunction(globalData["tertiary"])).lower()
+    globalData["shadow_transformative"] = formatFunction(getShadowFunction(globalData["inferior"])).lower()
 
     globalData["type_main"] = getTypeFromFunction(globalData["dominant"], globalData["auxiliary"], globalData["tertiary"], globalData["inferior"])
     globalData["type_shadow"] = getTypeFromFunction(globalData["shadow_opposing"], globalData["shadow_critical"], globalData["shadow_trickster"], globalData["shadow_transformative"])
