@@ -3,145 +3,145 @@
         {
             "type": "INTJ",
             "functions": {
-                "Dominant": "Ni",
-                "Auxiliary": "Te",
-                "Tertiary": "Fi",
-                "Inferior": "Se"
+                "dominant": "Ni",
+                "auxiliary": "Te",
+                "tertiary": "Fi",
+                "inferior": "Se"
             }
         },
         {
             "type": "INTP",
             "functions": {
-                "Dominant": "Ti",
-                "Auxiliary": "Ne",
-                "Tertiary": "Si",
-                "Inferior": "Fe"
+                "dominant": "Ti",
+                "auxiliary": "Ne",
+                "tertiary": "Si",
+                "inferior": "Fe"
             }
         },
         {
             "type": "ENTJ",
             "functions": {
-                "Dominant": "Te",
-                "Auxiliary": "Ni",
-                "Tertiary": "Se",
-                "Inferior": "Fi"
+                "dominant": "Te",
+                "auxiliary": "Ni",
+                "tertiary": "Se",
+                "inferior": "Fi"
             }
         },
         {
             "type": "ENTP",
             "functions": {
-                "Dominant": "Ne",
-                "Auxiliary": "Ti",
-                "Tertiary": "Fe",
-                "Inferior": "Si"
+                "dominant": "Ne",
+                "auxiliary": "Ti",
+                "tertiary": "Fe",
+                "inferior": "Si"
             }
         },
         {
             "type": "INFJ",
             "functions": {
-                "Dominant": "Ni",
-                "Auxiliary": "Fe",
-                "Tertiary": "Ti",
-                "Inferior": "Se"
+                "dominant": "Ni",
+                "auxiliary": "Fe",
+                "tertiary": "Ti",
+                "inferior": "Se"
             }
         },
         {
             "type": "INFP",
             "functions": {
-                "Dominant": "Fi",
-                "Auxiliary": "Ne",
-                "Tertiary": "Si",
-                "Inferior": "Te"
+                "dominant": "Fi",
+                "auxiliary": "Ne",
+                "tertiary": "Si",
+                "inferior": "Te"
             }
         },
         {
             "type": "ENFJ",
             "functions": {
-                "Dominant": "Fe",
-                "Auxiliary": "Ni",
-                "Tertiary": "Se",
-                "Inferior": "Ti"
+                "dominant": "Fe",
+                "auxiliary": "Ni",
+                "tertiary": "Se",
+                "inferior": "Ti"
             }
         },
         {
             "type": "ENFP",
             "functions": {
-                "Dominant": "Ne",
-                "Auxiliary": "Fi",
-                "Tertiary": "Te",
-                "Inferior": "Si"
+                "dominant": "Ne",
+                "auxiliary": "Fi",
+                "tertiary": "Te",
+                "inferior": "Si"
             }
         },
         {
             "type": "ISTJ",
             "functions": {
-                "Dominant": "Si",
-                "Auxiliary": "Te",
-                "Tertiary": "Fi",
-                "Inferior": "Ne"
+                "dominant": "Si",
+                "auxiliary": "Te",
+                "tertiary": "Fi",
+                "inferior": "Ne"
             }
         },
         {
             "type": "ISFJ",
             "functions": {
-                "Dominant": "Si",
-                "Auxiliary": "Fe",
-                "Tertiary": "Ti",
-                "Inferior": "Ne"
+                "dominant": "Si",
+                "auxiliary": "Fe",
+                "tertiary": "Ti",
+                "inferior": "Ne"
             }
         },
         {
             "type": "ESTJ",
             "functions": {
-                "Dominant": "Te",
-                "Auxiliary": "Si",
-                "Tertiary": "Ne",
-                "Inferior": "Fi"
+                "dominant": "Te",
+                "auxiliary": "Si",
+                "tertiary": "Ne",
+                "inferior": "Fi"
             }
         },
         {
             "type": "ESFJ",
             "functions": {
-                "Dominant": "Fe",
-                "Auxiliary": "Si",
-                "Tertiary": "Ne",
-                "Inferior": "Ti"
+                "dominant": "Fe",
+                "auxiliary": "Si",
+                "tertiary": "Ne",
+                "inferior": "Ti"
             }
         },
         {
             "type": "ISTP",
             "functions": {
-                "Dominant": "Ti",
-                "Auxiliary": "Se",
-                "Tertiary": "Ni",
-                "Inferior": "Fe"
+                "dominant": "Ti",
+                "auxiliary": "Se",
+                "tertiary": "Ni",
+                "inferior": "Fe"
             }
         },
         {
             "type": "ISFP",
             "functions": {
-                "Dominant": "Fi",
-                "Auxiliary": "Se",
-                "Tertiary": "Ni",
-                "Inferior": "Te"
+                "dominant": "Fi",
+                "auxiliary": "Se",
+                "tertiary": "Ni",
+                "inferior": "Te"
             }
         },
         {
             "type": "ESTP",
             "functions": {
-                "Dominant": "Se",
-                "Auxiliary": "Ti",
-                "Tertiary": "Fe",
-                "Inferior": "Ni"
+                "dominant": "Se",
+                "auxiliary": "Ti",
+                "tertiary": "Fe",
+                "inferior": "Ni"
             }
         },
         {
             "type": "ESFP",
             "functions": {
-                "Dominant": "Se",
-                "Auxiliary": "Fi",
-                "Tertiary": "Te",
-                "Inferior": "Ni"
+                "dominant": "Se",
+                "auxiliary": "Fi",
+                "tertiary": "Te",
+                "inferior": "Ni"
             }
         }
     ],

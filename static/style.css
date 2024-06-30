@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+}
+
+select,
+select option {
+    font-size: 18pt;
+}
+
+#submitButton {
+    font-size: 24pt;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.htmx-request {
+    background-color: red;
+}

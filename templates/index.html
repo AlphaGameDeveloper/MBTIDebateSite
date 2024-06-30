@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- load htmx -->
+        <script src="/static/htmx.min.js"></script>
+        <script src="/static/script.js"></script>
+        <link rel="stylesheet" href="/static/style.css">
+
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+
+        <div>
+            <span style="color: red; font-weight: bold;">LOADING...</span>
+        </div>
+        <h2>Current MBTI</h2>
+        <hr />
+        <select id="dominant">
+            <option value="ne">Ne</option>
+            <option value="ni">Ni</option>
+            <option value="se">Se</option>
+            <option value="si">Si</option>
+            <option value="te">Te</option>
+            <option value="ti">Ti</option>
+            <option value="fe">Fe</option>
+            <option value="fi">Fi</option>
+        </select>
+        <select id="auxiliary">
+            <option value="ne">Ne</option>
+            <option value="ni">Ni</option>
+            <option value="se">Se</option>
+            <option value="si">Si</option>
+            <option value="te">Te</option>
+            <option value="ti">Ti</option>
+            <option value="fe">Fe</option>
+            <option value="fi">Fi</option>
+        </select>
+        <select id="tertiary">
+            <option value="ne">Ne</option>
+            <option value="ni">Ni</option>
+            <option value="se">Se</option>
+            <option value="si">Si</option>
+            <option value="te">Te</option>
+            <option value="ti">Ti</option>
+            <option value="fe">Fe</option>
+            <option value="fi">Fi</option>
+        </select>
+        <select id="inferior">
+            <option value="ne">Ne</option>
+            <option value="ni">Ni</option>
+            <option value="se">Se</option>
+            <option value="si">Si</option>
+            <option value="te">Te</option>
+            <option value="ti">Ti</option>
+            <option value="fe">Fe</option>
+            <option value="fi">Fi</option>
+        </select>
+        <hr />
+        <button id="submitButton" onclick="submitCurrentState()">Submit</button>
+        <hr />
+        <h2>MBTI Current</h2>
+        <hr />
+        <p><b>Current MBTI: </b><span id="mbtiCurrent" hx-get="/api/accessInternals/type_main_str" hx-trigger="every 1s">LOADING</span>
+        <p><b>Current MBTI SHADOW: </b><span id="mbtiCurrent" hx-get="/api/accessInternals/type_shadow_str" hx-trigger="every 1s">LOADING</span>
+        <p><b>Function Stack:</b> <span hx-get="/api/getStack" hx-trigger="load" hx-swap="innerHTML" hx-on="htmx:afterRequest: this.removeAttribute('hx-trigger')">LOADING</span></p>
+        {% if debug %}
+        <div style="text-align: left;">
+            <h3><i>(Debug) API::accessInternals (CLICK TO UPDATE)</i></h3>
+            <pre hx-get="/api/accessInternals" hx-trigger="onclick">Click to update</pre>
+        </div>
+        {% endif %}
+    </body>
+</html>
