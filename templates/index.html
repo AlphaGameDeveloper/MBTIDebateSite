@@ -8,6 +8,11 @@
         <script src="/static/script.js"></script>
         <link rel="stylesheet" href="/static/style.css">
 
+        {% if debug or debugDisplay %}
+        <!-- DebugMode START-->
+        <style>.htmx-request {background-color: red;}</style>
+        <!-- DebugMode END -->
+        {% endif %}
         <title>{{title}}</title>
     </head>
     <body>
@@ -73,4 +78,7 @@
         </div>
         {% endif %}
     </body>
+    <footer>
+        Server Request Count: <span hx-get="/api/requestCount" hx-trigger="every 1s" hx-swap="innerHTML">LOADING</span>
+    </footer>
 </html>

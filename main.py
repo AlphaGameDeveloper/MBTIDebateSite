@@ -3,6 +3,8 @@ import json
 
 app = Flask(__name__)
 global json_mbti_stuff
+global request_count
+request_count = 0
 json_mbti_stuff = json.load(open("mbti-stuff.json"))
 
 global globalData
@@ -46,17 +48,28 @@ def getTypeFromFunction(dominant, auxiliary, tertiary, inferior) -> list[str]:
     return mbti
 @app.route("/")
 def index():
-    return render_template("index.html", debug=app.debug)
+    global request_count
 
+    request_count += 1
+
+    d = request.args.get('debug', None)
+    d = (d != None)
+    return render_template("index.html", debug=app.debug, debugDisplay=d)
+ 
 @app.route("/static/<path:path>")
 def _static(path):
+    global request_count
+
+    request_count += 1
     return send_from_directory("static", path)
 
 def formatFunction(function):
     return function[0].upper() + function[1].lower()
+
 @app.route("/api/submitCurrentstate", methods=["POST"])
 def submitCurrentState():
-    print(request.json)
+    global request_count
+    request_count += 1
     globalData.update(request.json)
     globalData["shadow_opposing"] = formatFunction(getShadowFunction(globalData["dominant"])).lower()
     globalData["shadow_critical"] = formatFunction(getShadowFunction(globalData["auxiliary"])).lower()
@@ -73,10 +86,14 @@ def submitCurrentState():
 
 @app.route("/api/accessInternals")
 def accessInternals():
+    global request_count
+    request_count += 1
     return globalData
 
 @app.route("/api/accessInternals/<string:key>")
 def getInternals(key):
+    global request_count
+    request_count += 1
     try:
         return globalData[key]
     except KeyError:
@@ -84,10 +101,14 @@ def getInternals(key):
 
 @app.route("/api/getState")
 def getState():
+    global request_count
+    request_count += 1
     return render_template("state.html", data=globalData)
 
 @app.route("/api/getStack")
 def getStack():
+    global request_count
+    request_count += 1
     return render_template("stackTable.html", stacks=[
         "dominant", 
         "auxiliary", 
@@ -97,5 +118,11 @@ def getStack():
         "shadow_critical",
         "shadow_trickster",
         "shadow_transformative"])
+
+@app.route("/api/requestCount")
+def requestCount():
+    global request_count
+    return str(request_count)
+
 if __name__ == "__main__":
     app.run()
