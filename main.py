@@ -8,6 +8,7 @@ request_count = 0
 json_mbti_stuff = json.load(open("mbti-stuff.json"))
 
 global globalData
+global globalDataTemplate
 globalData = {
     "changed_by": "SYSTEM",
     "type_main": ["X", "X", "X", "X"],
@@ -23,6 +24,7 @@ globalData = {
     "shadow_trickster": "Xx",
     "shadow_transformative": "Xx"
 }
+globalDataTemplate = globalData.copy()
 
 def getShadowFunction(function):
     fnl = list(function)
@@ -60,11 +62,20 @@ def index():
     if username == None:
         return redirect("/session/userConfiguration?from=index&reason=UserCookieNonexistant")
     debugSwitch = request.args.get('debug')
-    d = (debugSwitch.lower() in ["1", "on", "true"])
-    fdn = (debugSwitch.lower() in ["0", "off", "false"])
+    if debugSwitch == None: # bad case
+        d = False
+        fdn = True
+    else:
+        d = (debugSwitch.lower() in ["1", "on", "true"])
+        fdn = (debugSwitch.lower() in ["0", "off", "false"])
     debug = (app.debug or d) and not fdn
     return render_template("index.html", debug=debug, title="MBTI Debate Site", username=username)
 
+@app.route("/api/reset")
+def reset():
+    globalData.update(globalDataTemplate)
+    return redirect("/?debug=1&debugEnableSource=GrandFatheredInAfterReset&actionResult=SUCCESS")
+    
 @app.route("/api/userConfigHandler", methods=["GET"])
 def userConfigHandler():
     username = request.args.get("username")

@@ -80,7 +80,10 @@
             <h3><i>(Debug) API::accessInternals (/api/accessInternals)</i></h3>
             <pre hx-get="/api/accessInternals" hx-trigger="every 2.5s">Hold on, loading...</pre>
         </div>
+
+        <a style="position: fixed; bottom: 0; right: 0; z-index: 50;" href="/api/reset">Reset System</a>
         {% endif %}
+        
     </body>
     <footer>
         Server Request Count: <span hx-get="/api/requestCount" hx-trigger="every 1s" hx-swap="innerHTML">LOADING</span>
