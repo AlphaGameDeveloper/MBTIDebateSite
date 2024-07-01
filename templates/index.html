@@ -8,7 +8,7 @@
         <script src="/static/script.js"></script>
         <link rel="stylesheet" href="/static/style.css">
 
-        {% if debug or debugDisplay %}
+        {% if debug %}
         <!-- DebugMode START-->
         <style>.htmx-request {background-color: red;}</style>
         <!-- DebugMode END -->
@@ -16,11 +16,14 @@
         <title>{{title}}</title>
     </head>
     <body>
+		<p style="position: fixed; top: 0; left: 0;">Howdy, <i>{{username}}</i>!  (<a href="/session/userConfiguration?from=howdyTextChangeUsername&action=changeUsername&debug={{debug}}">Change Username?</a>)</p>
+		{% if debug %}
+		<a class="tr-button" href="?debug=0&debugDisableSource=linkDebugOff">Disable Debug Mode</a>
+		{% else %}
+		<a class="tr-button" href="?debug=1&debugEnableSource=linkDebugOn">Enable Debug Mode</a>
+		{% endif %}
         <h1>{{title}}</h1>
 
-        <div>
-            <span style="color: red; font-weight: bold;">LOADING...</span>
-        </div>
         <h2>Current MBTI</h2>
         <hr />
         <select id="dominant">
@@ -68,17 +71,19 @@
         <hr />
         <h2>MBTI Current</h2>
         <hr />
+        <p><b>Last Updated By: </b><span id="lastUpdatedBy" hx-get="/api/accessInternals/changed_by" hx-trigger="every 1s">LOADING</span></p>
         <p><b>Current MBTI: </b><span id="mbtiCurrent" hx-get="/api/accessInternals/type_main_str" hx-trigger="every 1s">LOADING</span>
         <p><b>Current MBTI SHADOW: </b><span id="mbtiShadow" hx-get="/api/accessInternals/type_shadow_str" hx-trigger="every 1s">LOADING</span>
         <p><b>Function Stack:</b> <span hx-get="/api/getStack" hx-trigger="load" hx-swap="innerHTML" hx-on="htmx:afterRequest: this.removeAttribute('hx-trigger')">LOADING</span></p>
         {% if debug %}
         <div style="text-align: left;">
-            <h3><i>(Debug) API::accessInternals (CLICK TO UPDATE)</i></h3>
-            <pre hx-get="/api/accessInternals" hx-trigger="onclick">Click to update</pre>
+            <h3><i>(Debug) API::accessInternals (/api/accessInternals)</i></h3>
+            <pre hx-get="/api/accessInternals" hx-trigger="every 2.5s">Hold on, loading...</pre>
         </div>
         {% endif %}
     </body>
     <footer>
         Server Request Count: <span hx-get="/api/requestCount" hx-trigger="every 1s" hx-swap="innerHTML">LOADING</span>
+        <span style="font-size: 11pt;"><br />Website Copyright &copy; Damien Boisvert (AlphaGameDeveloper) 2024.<br />Licensed under the GNU GPL, version 3 or (at your option) any later version. <b>GPL-3-OR-LATER</b></span>
     </footer>
 </html>

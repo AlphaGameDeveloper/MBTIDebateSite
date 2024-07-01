@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, request, render_template, send_from_directory, redirect
 import json
 
 app = Flask(__name__)
@@ -9,9 +9,10 @@ json_mbti_stuff = json.load(open("mbti-stuff.json"))
 
 global globalData
 globalData = {
-    "type_main": "XXXX",
-    "type_shadow": "XXXX",
-    "type_main_str": "XXXX",
+    "changed_by": "SYSTEM",
+    "type_main": ["X", "X", "X", "X"],
+    "type_shadow": ["X", "X", "X", "X"],
+    "type_main_str": "",
     "type_shadow_str": "XXXX",
     "dominant": "Xx",
     "auxiliary": "Xx",
@@ -29,6 +30,8 @@ def getShadowFunction(function):
         fnl[1] = "i"
     elif fnl[1].lower() == "i":
         fnl[1] = "e"
+    elif fnl[1].lower() == "x":
+        return
     else:
         raise ValueError("Invalid function - Second letter incorrect!")
     _re = "".join(fnl).lower()
@@ -46,16 +49,35 @@ def getTypeFromFunction(dominant, auxiliary, tertiary, inferior) -> list[str]:
     print([dominant, auxiliary, tertiary, inferior])
     print(mbti)
     return mbti
+
 @app.route("/")
 def index():
     global request_count
 
     request_count += 1
 
-    d = request.args.get('debug', None)
-    d = (d != None)
-    return render_template("index.html", debug=app.debug, debugDisplay=d)
- 
+    username = request.cookies.get("username")
+    if username == None:
+        return redirect("/session/userConfiguration?from=index&reason=UserCookieNonexistant")
+    debugSwitch = request.args.get('debug')
+    d = (debugSwitch.lower() in ["1", "on", "true"])
+    fdn = (debugSwitch.lower() in ["0", "off", "false"])
+    debug = (app.debug or d) and not fdn
+    return render_template("index.html", debug=debug, title="MBTI Debate Site", username=username)
+
+@app.route("/api/userConfigHandler", methods=["GET"])
+def userConfigHandler():
+    username = request.args.get("username")
+    print(username)
+    r = redirect("/?debug=0&debugDisableSource=UserConfigurationDefault")
+    r.set_cookie('username', username)
+    return r
+
+@app.route("/session/userConfiguration")
+def userConfig():
+    username = request.cookies.get("username")
+    return render_template("username.html", username=username)
+     
 @app.route("/static/<path:path>")
 def _static(path):
     global request_count
@@ -70,7 +92,9 @@ def formatFunction(function):
 def submitCurrentState():
     global request_count
     request_count += 1
+
     globalData.update(request.json)
+    globalData["changed_by"] = request.cookies.get('username')
     globalData["shadow_opposing"] = formatFunction(getShadowFunction(globalData["dominant"])).lower()
     globalData["shadow_critical"] = formatFunction(getShadowFunction(globalData["auxiliary"])).lower()
     globalData["shadow_trickster"] = formatFunction(getShadowFunction(globalData["tertiary"])).lower()

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>User Input Required</title>
+	</head>
+	<body style="text-align: center; margin-top: 40vh; width: 100%; height: 100%;">
+		<h1>Enter a username!</h1>
+		<form action="/api/userConfigHandler" method="GET">
+			<input name="username" type="text" style="font-size: 18pt; width: 80vw; text-align: center;" placeholder="Damien (in all of his awesomeness)" {% if username %} value="{{username}}" {% endif %} />
+			<input type="submit" style="font-size: 18pt; width: 100vw; text-align: center;">
+		</form>
+		<p style="text-align: center; font-style: italic;">Press &lt;SUBMIT&gt; or hit ENTER to continue</p>
+	</body>
+</html>

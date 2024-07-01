@@ -1,3 +1,6 @@
+/* i hate the diferent color for links with :visited on */
+a,a:visited {color:blue}
+
 body {
     text-align: center;
 }
@@ -23,7 +26,11 @@ td {
     border-style: inset;
 }
 
-
+.tr-button {
+	position: fixed;
+	top: 0;
+	right: 0;
+}
 /* Debug if needed */
 /*
 .htmx-request {
