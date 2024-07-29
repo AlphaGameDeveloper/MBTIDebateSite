@@ -1,4 +1,7 @@
 /* i hate the diferent color for links with :visited on */
+a {
+	text-indent: 0;
+}
 a,a:visited {color:blue}
 
 body {
@@ -13,6 +16,7 @@ select option {
 #submitButton {
     font-size: 24pt;
 }
+
 footer {
     position: fixed;
     bottom: 0;
@@ -36,3 +40,13 @@ td {
 .htmx-request {
     background-color: red;
 } */
+
+.cog-select {
+	width: 20vw;
+	display: inline;
+	
+}
+
+.cog-select[prefers-media-scheme: mobile] {
+	background-color: green;
+}

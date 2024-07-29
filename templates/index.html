@@ -8,6 +8,7 @@
         <script src="/static/script.js"></script>
         <link rel="stylesheet" href="/static/style.css">
 
+		<link rel="stylesheet" href="/static/pico.min.css" />
         {% if debug %}
         <!-- DebugMode START-->
         <style>.htmx-request {background-color: red;}</style>
@@ -16,7 +17,10 @@
         <title>{{title}}</title>
     </head>
     <body>
-		<p style="position: fixed; top: 0; left: 0;">Howdy, <i>{{username}}</i>!  (<a href="/session/userConfiguration?from=howdyTextChangeUsername&action=changeUsername&debug={{debug}}">Change Username?</a>)</p>
+		<div style="position: fixed; top: 0; left: 0;">
+			<p>Howdy, <i>{{username}}</i>!  (<a href="/session/userConfiguration?from=howdyTextChangeUsername&action=changeUsername&debug={{debug}}">Change Username?</a>)</p>
+			{% if debug %}<p><b>CLIENT DEBUG MODE IS ENABLED.</b></p>{% endif %}
+		</div>
 		{% if debug %}
 		<a class="tr-button" href="?debug=0&debugDisableSource=linkDebugOff">Disable Debug Mode</a>
 		{% else %}
@@ -26,7 +30,7 @@
 
         <h2>Current MBTI</h2>
         <hr />
-        <select id="dominant">
+        <select id="dominant" class="cog-select">
             <option value="ne">Ne</option>
             <option value="ni">Ni</option>
             <option value="se">Se</option>
@@ -36,7 +40,7 @@
             <option value="fe">Fe</option>
             <option value="fi">Fi</option>
         </select>
-        <select id="auxiliary">
+        <select id="auxiliary" class="cog-select">
             <option value="ne">Ne</option>
             <option value="ni">Ni</option>
             <option value="se">Se</option>
@@ -46,7 +50,7 @@
             <option value="fe">Fe</option>
             <option value="fi">Fi</option>
         </select>
-        <select id="tertiary">
+        <select id="tertiary" class="cog-select">
             <option value="ne">Ne</option>
             <option value="ni">Ni</option>
             <option value="se">Se</option>
@@ -56,7 +60,7 @@
             <option value="fe">Fe</option>
             <option value="fi">Fi</option>
         </select>
-        <select id="inferior">
+        <select id="inferior" class="cog-select">
             <option value="ne">Ne</option>
             <option value="ni">Ni</option>
             <option value="se">Se</option>
@@ -79,14 +83,15 @@
         <div style="text-align: left;">
             <h3><i>(Debug) API::accessInternals (/api/accessInternals)</i></h3>
             <pre hx-get="/api/accessInternals" hx-trigger="every 2.5s">Hold on, loading...</pre>
+			<p><b>Cookies</b> {{cookies}}</p>
+			<p><b>Query Params</b> {{args}}</p>
         </div>
-
         <a style="position: fixed; bottom: 0; right: 0; z-index: 50;" href="/api/reset">Reset System</a>
         {% endif %}
         
     </body>
-    <footer>
-        Server Request Count: <span hx-get="/api/requestCount" hx-trigger="every 1s" hx-swap="innerHTML">LOADING</span>
+<!--    <footer>
+        {% if debug %}Server Request Count: <span hx-get="/api/requestCount" hx-trigger="every 1s" hx-swap="innerHTML">LOADING</span>{% endif %}
         <span style="font-size: 11pt;"><br />Website Copyright &copy; Damien Boisvert (AlphaGameDeveloper) 2024.<br />Licensed under the GNU GPL, version 3 or (at your option) any later version. <b>GPL-3-OR-LATER</b></span>
-    </footer>
+    </footer> -->
 </html>

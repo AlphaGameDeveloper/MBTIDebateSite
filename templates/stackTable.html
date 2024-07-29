@@ -6,7 +6,7 @@
     {% for entry in stacks %}
     <tr>
         <td>{{entry}}</td>
-        <td hx-get="/api/accessInternals/{{entry}}" hx-trigger="every 2s">LOADING</td>
+        <td hx-get="/api/accessInternals/{{entry}}?cf=true" hx-trigger="every 2s">LOADING</td>
     </tr>
     {% endfor %}
 </table>
