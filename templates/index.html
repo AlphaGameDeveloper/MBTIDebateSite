@@ -21,10 +21,14 @@
 			<p>Howdy, <i>{{username}}</i>!  (<a href="/session/userConfiguration?from=howdyTextChangeUsername&action=changeUsername&debug={{debug}}">Change Username?</a>)</p>
 			{% if debug %}<p><b>CLIENT DEBUG MODE IS ENABLED.</b></p>{% endif %}
 		</div>
+		{% if show_debug_enable_option %}
+		<!-- debug enable option enabled -->
 		{% if debug %}
 		<a class="tr-button" href="?debug=0&debugDisableSource=linkDebugOff">Disable Debug Mode</a>
 		{% else %}
 		<a class="tr-button" href="?debug=1&debugEnableSource=linkDebugOn">Enable Debug Mode</a>
+		{% endif %}
+		<!-- end debug enable option enabled -->
 		{% endif %}
         <h1>{{title}}</h1>
 

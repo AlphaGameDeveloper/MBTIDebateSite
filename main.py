@@ -74,8 +74,8 @@ def index():
     else:
         debug = (debugSwitch.lower() in ["1", "on", "true"])
         force_debug_no = (debugSwitch.lower() in ["0", "off", "false"])
-    debug = (app.debug or d) and not force_debug_no
-    return render_template("index.html", args=args, cookies=cookies, debug=debug, title="MBTI Debate Site", username=username)
+    debug = (app.debug or debug) and not force_debug_no
+    return render_template("index.html", args=args, cookies=cookies, debug=debug, title="MBTI Debate Site", username=username, show_debug_enable_option=app.debug)
 
 @app.route("/api/reset")
 def reset():
